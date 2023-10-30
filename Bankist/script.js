@@ -29,7 +29,7 @@ document.addEventListener('keydown', function (e) {
 	}
 });
 
-// Scroll
+// Button scroll
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
 
@@ -37,4 +37,14 @@ btnScrollTo.addEventListener('click', function (e) {
 	const s1coords = section1.getBoundingClientRect();
 
 	section1.scrollIntoView({ behavior: 'smooth' });
+});
+
+// Page navigation scroll
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+	if (e.target.classList.contains('nav__link')) {
+		e.preventDefault();
+		const id = e.target.getAttribute('href');
+		console.log(id);
+		document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+	}
 });
